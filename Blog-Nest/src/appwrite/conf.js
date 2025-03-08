@@ -119,7 +119,7 @@ export class services {
     }
   }
 
-  getFilePreview(fileID) {
+  getFilePreview(fileID) { // no async because it doesnt return promise
     return this.storage.getFilePreview(
       config.appwritreBucketID,
       fileID
