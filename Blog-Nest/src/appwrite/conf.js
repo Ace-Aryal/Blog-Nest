@@ -3,7 +3,7 @@
 import config from "../config/config";
 import { Client, ID, Databases, Query, Storage } from "appwrite";
 
-export class services {
+export default class Services {
   client = new Client();
   databases;
   storage; // bucket
