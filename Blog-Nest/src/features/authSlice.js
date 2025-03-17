@@ -2,15 +2,14 @@ import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
     status: false,
-    userData: {
-
-    }
+    userData: null
 }
 
 const authSlice = createSlice({
     name: "auth",
     initialState,
     reducers: {
+        // tracks changes affter backend call
         login: (state, action) => {
             state.status = true,
                 state.userData = action.payload.userData
@@ -18,7 +17,7 @@ const authSlice = createSlice({
 
         logout: (state, action) => {
             state.status = false,
-                userData = {}
+                userData = null
         }
 
 

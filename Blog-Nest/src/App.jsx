@@ -10,6 +10,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    // handle redux state
     authService
       .getCurrentUser()
       .then((userData) => {
