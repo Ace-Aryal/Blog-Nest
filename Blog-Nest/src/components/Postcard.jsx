@@ -1,7 +1,7 @@
 import { Card, Image, Text, Badge, Button, Group } from "@mantine/core";
-import appWriteService from "../appwrite/conf";
+import appWriteService from "../appwrite/conf"; // we need getpost and get file preview
 import { Link } from "react-router";
-
+//this cards contain links for actual posts
 function Postcard({ $id, title, featuredImage }) {
   return (
     <Link to={`/post/${$id}`}>

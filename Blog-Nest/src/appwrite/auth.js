@@ -26,43 +26,44 @@ export class AuthService {
       ); // this parameter structure is defined in the docmentation
 
       if (!userAccount) {
-        
 
-        return userAccount
+
+        return
       }
-        return this.login({email , password})
+      this.login({ email, password })
+      return userAccount
       // if the account is created log them in automatically 
-      
-    
+
+
     } catch (error) {
       throw error;
     }
   }
 
-  async login ({email ,password , username} ){
+  async login({ email, password, username }) {
     try {
-        await this.account.createEmailPasswordSession(email, password)
+      await this.account.createEmailPasswordSession(email, password)
     } catch (error) {
-        throw error
+      throw error
     }
   }
 
   async getCurrentUser() {
     try {
 
-       return await this.account.get()
+      return await this.account.get()
     } catch (error) {
-        throw error
+      throw error
     }
 
     return null
   }
 
-  async logout () {
+  async logout() {
     try {
-        await this.account.deleteSessions()
+      await this.account.deleteSessions()
     } catch (error) {
-        throw error
+      throw error
     }
   }
 }

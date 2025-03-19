@@ -7,9 +7,11 @@ const RTE = ({ name, control, label, defaultValue = "" }) => {
       {label && <label htmlFor="inline-block mb-1 p-1">{label}</label>}
       <Controller
         name={name || "content"}
-        control={control}
-        render={({ field: { onChange } }) => (
-          <Editor
+        control={control} // passed from postform
+        render={(
+          { field: { onChange } } // when(field) and what to render(Editor)
+        ) => (
+          <Editor // tiny mce
             initialValue={defaultValue}
             init={{
               initialValue: defaultValue,
@@ -42,7 +44,7 @@ const RTE = ({ name, control, label, defaultValue = "" }) => {
               content_style:
                 "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
             }}
-            onEditorChange={onChange}
+            onEditorChange={onChange} // syntax to control from field
           />
         )}
       ></Controller>

@@ -12,11 +12,10 @@ import authService from "../appwrite/auth";
 function Login(data) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit } = useForm(); // react hook form docs also handleSubmit is a keyword
   const [error, setError] = useState("");
-
   const login = async () => {
-    setError("");
+    setError(""); // initially there should not be any error
     try {
       const session = await authService.login(data);
       if (!session) return;

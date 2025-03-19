@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 
+// for conditional rendering acc to auth status
 export default function Protected({ children, authenicatioin = true }) {
   const navigate = useNavigate();
   const [loader, setLoader] = useState();

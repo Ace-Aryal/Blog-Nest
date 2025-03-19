@@ -3,7 +3,7 @@
 import config from "../config/config";
 import { Client, ID, Databases, Query, Storage } from "appwrite";
 
-export default class Services {
+export class Services {
   client = new Client();
   databases;
   storage; // bucket
@@ -17,6 +17,7 @@ export default class Services {
   }
 
   // using slug as id
+  // note in most of the methods we are returning file and  post we we can use them when needed
   async createPost({ title, slug, content, featuredImage, status, userID }) {
     try {
       return this.databases.createDocument(
@@ -94,7 +95,7 @@ export default class Services {
   }
 
   // file upload service 
-
+  // note that post id and file id are differenft
   async uploadFile(file) {
     try {
       return await this.storage.createFile(
@@ -127,3 +128,7 @@ export default class Services {
   }
 
 }
+
+const appWriteService = new Services()
+
+export default appWriteService
